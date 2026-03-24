@@ -1,0 +1,19 @@
+# Vercel
+.vercel
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Env & secrets
+.env
+.env.*
+!.env.example
+
+# Logs & local storage
+*.log
+storage/*.log
+!storage/.gitignore

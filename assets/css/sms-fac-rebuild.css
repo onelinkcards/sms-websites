@@ -1,0 +1,511 @@
+/**
+ * Facilities section rebuild — homepage only (.sms-hs-fac--rebuild)
+ * Centered header → stats strip → full-width numbered list.
+ */
+
+.sms-hs-fac--rebuild {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.sms-hs-fac--rebuild .sms-hs-fac__head {
+  text-align: center;
+  margin: 0 auto 40px;
+  max-width: 100%;
+}
+
+.sms-hs-fac--rebuild .sms-hs-fac__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 12px;
+  justify-content: center;
+}
+
+.sms-hs-fac--rebuild .sms-hs-fac__eyebrow-line {
+  width: 36px;
+  height: 2px;
+  background: #8b1a1a;
+  flex-shrink: 0;
+  border-radius: 1px;
+}
+
+.sms-hs-fac--rebuild .sms-hs-fac__eyebrow-text {
+  font-size: 13px;
+  font-weight: 800;
+  color: #8b1a1a;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.sms-hs-fac--rebuild .sms-hs-fac__title.section-heading {
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 800;
+  color: #0d0d0d;
+  line-height: 1.15;
+  margin: 0 auto 16px;
+  max-width: 920px;
+  letter-spacing: -0.02em;
+}
+
+.sms-hs-fac--rebuild .sms-hs-fac__intro {
+  font-size: 16px;
+  color: #777777;
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.65;
+  font-weight: 400;
+}
+
+/* Stats strip */
+.sms-hs-fac--rebuild .sms-hs-fac__strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin: 0 0 40px;
+  border: 0.5px solid #e8e0d8;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.sms-hs-fac--rebuild .sms-hs-fac__strip-cell {
+  padding: 20px 24px;
+  text-align: center;
+  border-right: 0.5px solid #e8e0d8;
+}
+
+.sms-hs-fac--rebuild .sms-hs-fac__strip-cell:last-child {
+  border-right: none;
+}
+
+.sms-hs-fac--rebuild .sms-hs-fac__strip-val {
+  display: block;
+  font-size: 26px;
+  font-weight: 800;
+  color: #8b1a1a;
+  margin-bottom: 4px;
+  line-height: 1.15;
+}
+
+.sms-hs-fac--rebuild .sms-hs-fac__strip-lbl {
+  display: block;
+  font-size: 12px;
+  color: #777777;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+/* List */
+.sms-hs-fac--rebuild .sms-hs-fac__items {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  max-width: 100%;
+}
+
+.sms-hs-fac--rebuild .sms-hs-fac__item {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition:
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+.sms-hs-fac--rebuild .sms-hs-fac__item:focus {
+  outline: none;
+}
+
+.sms-hs-fac--rebuild .sms-hs-fac__item:focus-visible {
+  outline: 2px solid #8b1a1a;
+  outline-offset: 3px;
+}
+
+.sms-hs-fac--rebuild .sms-hs-fac__item-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-color: #1a1a1a;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sms-hs-fac--rebuild .sms-hs-fac__item--active .sms-hs-fac__item-bg {
+  opacity: 1;
+}
+
+.sms-hs-fac--rebuild .sms-hs-fac__item--i1 .sms-hs-fac__item-bg {
+  background-image: url('https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=1600&q=90');
+}
+
+.sms-hs-fac--rebuild .sms-hs-fac__item--i2 .sms-hs-fac__item-bg {
+  background-image: url('https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=1600&q=90');
+}
+
+.sms-hs-fac--rebuild .sms-hs-fac__item--i3 .sms-hs-fac__item-bg {
+  background-image: url('https://images.unsplash.com/photo-1584433144859-1fc3ab64a728?auto=format&fit=crop&w=1600&q=90');
+}
+
+.sms-hs-fac--rebuild .sms-hs-fac__item--i4 .sms-hs-fac__item-bg {
+  background-image: url('https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&w=1600&q=90');
+}
+
+.sms-hs-fac--rebuild .sms-hs-fac__item-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(100, 10, 10, 0.82);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.sms-hs-fac--rebuild .sms-hs-fac__item--active .sms-hs-fac__item-scrim {
+  opacity: 1;
+}
+
+.sms-hs-fac--rebuild .sms-hs-fac__item-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 32px 40px;
+}
+
+.sms-hs-fac--rebuild .sms-hs-fac__item--active .sms-hs-fac__item-inner {
+  padding: 32px 40px;
+}
+
+.sms-hs-fac--rebuild .sms-hs-fac__item--active {
+  box-shadow: 0 8px 28px rgba(100, 10, 10, 0.25);
+}
+
+/* Inactive row chrome */
+.sms-hs-fac--rebuild .sms-hs-fac__item:not(.sms-hs-fac__item--active) {
+  background: #ffffff;
+  border: 1px solid #e8e0d8;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.sms-hs-fac--rebuild .sms-hs-fac__item:not(.sms-hs-fac__item--active):hover {
+  border-color: #d8d0c8;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.08);
+}
+
+.sms-hs-fac--rebuild .sms-hs-fac__item:not(.sms-hs-fac__item--active) .sms-hs-fac__item-inner {
+  padding: 26px 40px;
+}
+
+.sms-hs-fac--rebuild .sms-hs-fac__item-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+/* Active row: bold white index, soft crimson-tint frame */
+.sms-hs-fac--rebuild .sms-hs-fac__item--active .sms-hs-fac__item-num {
+  width: 68px;
+  height: 68px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-radius: 10px;
+  font-size: 22px;
+  font-weight: 800;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Inactive: crimson numbers — clear on page */
+.sms-hs-fac--rebuild .sms-hs-fac__item:not(.sms-hs-fac__item--active) .sms-hs-fac__item-num {
+  width: 64px;
+  height: 64px;
+  border: 1.5px solid rgba(139, 26, 26, 0.22);
+  border-radius: 10px;
+  background: rgba(139, 26, 26, 0.06);
+  font-size: 22px;
+  font-weight: 800;
+  color: #8b1a1a;
+}
+
+.sms-hs-fac--rebuild .sms-hs-fac__item-copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.sms-hs-fac--rebuild .sms-hs-fac__item-title {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  color: #0d0d0d;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.sms-hs-fac--rebuild .sms-hs-fac__item--active .sms-hs-fac__item-title {
+  font-size: 21px;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.sms-hs-fac--rebuild .sms-hs-fac__item-desc {
+  display: block;
+  margin: 0;
+  font-size: 14.5px;
+  color: #666666;
+  line-height: 1.65;
+  font-weight: 400;
+}
+
+.sms-hs-fac--rebuild .sms-hs-fac__item--active .sms-hs-fac__item-desc {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.65;
+}
+
+.sms-hs-fac--rebuild .sms-hs-fac__item-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  text-decoration: none;
+  border-radius: 50%;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.sms-hs-fac--rebuild .sms-hs-fac__item--active .sms-hs-fac__item-arrow {
+  width: 48px;
+  height: 48px;
+  background: #ffffff;
+  color: #8b1a1a;
+}
+
+.sms-hs-fac--rebuild .sms-hs-fac__item--active .sms-hs-fac__item-arrow svg {
+  width: 20px;
+  height: 20px;
+}
+
+.sms-hs-fac--rebuild .sms-hs-fac__item:not(.sms-hs-fac__item--active) .sms-hs-fac__item-arrow {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: rgba(139, 26, 26, 0.06);
+  color: #8b1a1a;
+  border-radius: 50%;
+  border: 1px solid rgba(139, 26, 26, 0.15);
+}
+
+.sms-hs-fac--rebuild .sms-hs-fac__item:not(.sms-hs-fac__item--active) .sms-hs-fac__item-arrow svg {
+  width: 18px;
+  height: 18px;
+}
+
+.sms-hs-fac--rebuild .sms-hs-fac__item:not(.sms-hs-fac__item--active) .sms-hs-fac__item-arrow:hover {
+  background: rgba(139, 26, 26, 0.12);
+  border-color: rgba(139, 26, 26, 0.28);
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.sms-hs-fac--rebuild .sms-hs-fac__item--active .sms-hs-fac__item-arrow:hover {
+  opacity: 0.92;
+  transform: scale(1.04);
+}
+
+.sms-hs-fac--rebuild .sms-hs-fac__foot {
+  text-align: center;
+  margin-top: 8px;
+}
+
+/* Larger, clear CTA — still matches brand (not a tiny text link) */
+.sms-hs-fac--rebuild .sms-hs-fac__campus-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 28px;
+  min-height: 52px;
+  padding: 14px 32px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #8b1a1a;
+  text-decoration: none;
+  border: 2px solid #8b1a1a;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0 2px 12px rgba(139, 26, 26, 0.08);
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.sms-hs-fac--rebuild .sms-hs-fac__campus-link:hover {
+  background: #8b1a1a;
+  color: #ffffff;
+  box-shadow: 0 6px 20px rgba(139, 26, 26, 0.25);
+}
+
+.sms-hs-fac--rebuild .sms-hs-fac__campus-link:active {
+  transform: scale(0.98);
+}
+
+@media (max-width: 767px) {
+  .sms-hs-fac--rebuild .sms-hs-fac__title.section-heading {
+    font-size: clamp(24px, 6vw, 32px);
+  }
+
+  .sms-hs-fac--rebuild .sms-hs-fac__intro {
+    font-size: 15px;
+    line-height: 1.6;
+    padding: 0 2px;
+  }
+
+  .sms-hs-fac--rebuild .sms-hs-fac__strip {
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 28px;
+    border-radius: 12px;
+  }
+
+  .sms-hs-fac--rebuild .sms-hs-fac__strip-cell {
+    padding: 14px 12px;
+  }
+
+  .sms-hs-fac--rebuild .sms-hs-fac__strip-val {
+    font-size: 22px;
+  }
+
+  .sms-hs-fac--rebuild .sms-hs-fac__strip-lbl {
+    font-size: 11px;
+    line-height: 1.35;
+  }
+
+  .sms-hs-fac--rebuild .sms-hs-fac__strip-cell:nth-child(2) {
+    border-right: none;
+  }
+
+  .sms-hs-fac--rebuild .sms-hs-fac__strip-cell:nth-child(1),
+  .sms-hs-fac--rebuild .sms-hs-fac__strip-cell:nth-child(2) {
+    border-bottom: 0.5px solid #e8e0d8;
+  }
+
+  .sms-hs-fac--rebuild .sms-hs-fac__head {
+    margin-bottom: 28px;
+  }
+
+  .sms-hs-fac--rebuild .sms-hs-fac__items {
+    gap: 14px;
+  }
+
+  /* Card stack: clearer hierarchy on small screens */
+  .sms-hs-fac--rebuild .sms-hs-fac__item {
+    border-radius: 14px;
+  }
+
+  .sms-hs-fac--rebuild .sms-hs-fac__item-inner {
+    position: relative;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 18px 16px 18px 16px;
+  }
+
+  .sms-hs-fac--rebuild .sms-hs-fac__item--active .sms-hs-fac__item-inner,
+  .sms-hs-fac--rebuild .sms-hs-fac__item:not(.sms-hs-fac__item--active) .sms-hs-fac__item-inner {
+    padding: 18px 16px;
+  }
+
+  .sms-hs-fac--rebuild .sms-hs-fac__item-num {
+    flex-shrink: 0;
+    align-self: flex-start;
+  }
+
+  .sms-hs-fac--rebuild .sms-hs-fac__item--active .sms-hs-fac__item-num {
+    width: 52px;
+    height: 52px;
+    font-size: 18px;
+  }
+
+  .sms-hs-fac--rebuild .sms-hs-fac__item:not(.sms-hs-fac__item--active) .sms-hs-fac__item-num {
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+  }
+
+  .sms-hs-fac--rebuild .sms-hs-fac__item-arrow {
+    position: absolute;
+    top: 16px;
+    right: 14px;
+  }
+
+  .sms-hs-fac--rebuild .sms-hs-fac__item--active .sms-hs-fac__item-arrow,
+  .sms-hs-fac--rebuild .sms-hs-fac__item:not(.sms-hs-fac__item--active) .sms-hs-fac__item-arrow {
+    width: 44px;
+    height: 44px;
+  }
+
+  .sms-hs-fac--rebuild .sms-hs-fac__item-copy {
+    padding-right: 52px;
+    width: 100%;
+  }
+
+  .sms-hs-fac--rebuild .sms-hs-fac__item--active .sms-hs-fac__item-title {
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+  }
+
+  .sms-hs-fac--rebuild .sms-hs-fac__item:not(.sms-hs-fac__item--active) .sms-hs-fac__item-title {
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+  }
+
+  .sms-hs-fac--rebuild .sms-hs-fac__item-desc {
+    font-size: 14px;
+    line-height: 1.62;
+  }
+
+  .sms-hs-fac--rebuild .sms-hs-fac__item--active .sms-hs-fac__item-desc {
+    font-size: 14px;
+    line-height: 1.62;
+  }
+
+  .sms-hs-fac--rebuild .sms-hs-fac__campus-link {
+    width: 100%;
+    max-width: none;
+    margin-top: 22px;
+    min-height: 52px;
+    font-size: 15px;
+    padding: 14px 20px;
+    border-radius: 12px;
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sms-hs-fac--rebuild .sms-hs-fac__item,
+  .sms-hs-fac--rebuild .sms-hs-fac__item-bg,
+  .sms-hs-fac--rebuild .sms-hs-fac__item-scrim {
+    transition: none;
+  }
+}
