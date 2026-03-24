@@ -55,6 +55,17 @@ if (!defined('SMS_SHOW_DEMO_BANNER')) {
     define('SMS_SHOW_DEMO_BANNER', true);
 }
 
+/**
+ * Tribute landing — shown once per PHP session before the homepage (index.php).
+ * Set false to skip (e.g. local dev). Portrait: copy to this path or override define.
+ */
+if (!defined('SMS_TRIBUTE_SPLASH')) {
+    define('SMS_TRIBUTE_SPLASH', true);
+}
+if (!defined('SMS_TRIBUTE_PORTRAIT')) {
+    define('SMS_TRIBUTE_PORTRAIT', 'assets/images/tribute/sant-manjit-singh-ji.jpeg');
+}
+
 /** Enquiry form: notification inbox — defaults to college email when defined */
 if (!defined('SMS_ENQUIRY_NOTIFY_EMAIL')) {
     define(

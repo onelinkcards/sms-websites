@@ -17,3 +17,4 @@ Thumbs.db
 *.log
 storage/*.log
 !storage/.gitignore
+/WhatsApp*.jpeg

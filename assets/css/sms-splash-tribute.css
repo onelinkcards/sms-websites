@@ -1,0 +1,470 @@
+/**
+ * Tribute landing — first visit gate (splash-tribute.php)
+ * Palette: cream, crimson, antique gold; subtle SVG pattern + corner ornaments.
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --splash-gold: #c8a96e;
+  --splash-gold-light: #e8d5a3;
+  --splash-gold-dark: #9b7d45;
+  --splash-crimson: #7a1616;
+  --splash-crimson-light: #a32222;
+  --splash-cream: #faf6ef;
+  --splash-mist: #f3e8dc;
+  --splash-lavender: rgba(168, 150, 188, 0.12);
+  --splash-text: #1a0f0f;
+  --splash-body: #3d2b2b;
+  --splash-muted: #7a6355;
+}
+
+html {
+  height: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body.sms-splash-tribute {
+  min-height: 100%;
+  min-height: 100dvh;
+  font-family: 'EB Garamond', 'Cormorant Garamond', Georgia, serif;
+  background: var(--splash-cream);
+  color: var(--splash-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow-x: hidden;
+  padding: env(safe-area-inset-top, 0) env(safe-area-inset-right, 0) env(safe-area-inset-bottom, 0)
+    env(safe-area-inset-left, 0);
+}
+
+@media (min-width: 768px) {
+  html,
+  body.sms-splash-tribute {
+    overflow: hidden;
+    height: 100%;
+  }
+}
+
+/* Atmospheric background — gold mist, soft lavender (inspiration), crimson undertone */
+.sms-splash-tribute__bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 90% 55% at 50% -5%, var(--splash-lavender) 0%, transparent 55%),
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(200, 169, 110, 0.2) 0%, transparent 72%),
+    radial-gradient(ellipse 55% 70% at 15% 100%, rgba(122, 22, 22, 0.09) 0%, transparent 58%),
+    radial-gradient(ellipse 55% 70% at 85% 100%, rgba(122, 22, 22, 0.06) 0%, transparent 58%),
+    linear-gradient(172deg, #fdf8ef 0%, #f5ecd8 38%, #ede0c8 72%, #efe4cc 100%);
+}
+
+/* Fine geometric pattern */
+.sms-splash-tribute__pattern {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.055;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Cg fill='none' stroke='%238B6020' stroke-width='0.45'%3E%3Cpath d='M48 6 L48 90M6 48 L90 48'/%3E%3Ccircle cx='48' cy='48' r='22'/%3E%3Ccircle cx='48' cy='48' r='40'/%3E%3Cpath d='M48 6 L66 24 L90 24 L90 48 L66 66 L48 90 L30 66 L6 66 L6 48 L30 26 Z'/%3E%3Ccircle cx='48' cy='6' r='1.8'/%3E%3Ccircle cx='48' cy='90' r='1.8'/%3E%3Ccircle cx='6' cy='48' r='1.8'/%3E%3Ccircle cx='90' cy='48' r='1.8'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.sms-splash-tribute__corner {
+  position: fixed;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.sms-splash-tribute__corner svg {
+  width: clamp(48px, 12vw, 80px);
+  height: clamp(48px, 12vw, 80px);
+  opacity: 0.35;
+}
+
+.sms-splash-tribute__corner--tl {
+  top: max(16px, env(safe-area-inset-top));
+  left: max(16px, env(safe-area-inset-left));
+}
+
+.sms-splash-tribute__corner--tr {
+  top: max(16px, env(safe-area-inset-top));
+  right: max(16px, env(safe-area-inset-right));
+  transform: scaleX(-1);
+}
+
+.sms-splash-tribute__corner--bl {
+  bottom: max(16px, env(safe-area-inset-bottom));
+  left: max(16px, env(safe-area-inset-left));
+  transform: scaleY(-1);
+}
+
+.sms-splash-tribute__corner--br {
+  bottom: max(16px, env(safe-area-inset-bottom));
+  right: max(16px, env(safe-area-inset-right));
+  transform: scale(-1, -1);
+}
+
+.sms-splash-tribute__container {
+  position: relative;
+  z-index: 10;
+  max-width: 36rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: clamp(20px, 5vw, 28px) clamp(20px, 5vw, 32px) clamp(28px, 6vw, 40px);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  animation: smsSplashReveal 1.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  opacity: 0;
+}
+
+@keyframes smsSplashReveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sms-splash-tribute__top-ornament {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  animation: smsSplashFade 1.4s 0.25s both;
+}
+
+.sms-splash-tribute__divider-line {
+  width: clamp(40px, 14vw, 64px);
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--splash-gold-dark));
+}
+
+.sms-splash-tribute__divider-line--rev {
+  background: linear-gradient(to left, transparent, var(--splash-gold-dark));
+}
+
+@keyframes smsSplashFade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sms-splash-tribute__headline {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.75rem, 5.5vw, 2.65rem);
+  font-weight: 500;
+  font-style: italic;
+  color: var(--splash-crimson);
+  letter-spacing: 0.02em;
+  line-height: 1.12;
+  margin-bottom: 6px;
+  animation: smsSplashFade 1.4s 0.4s both;
+}
+
+.sms-splash-tribute__headline-accent {
+  font-family: 'Great Vibes', cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(1.85rem, 6.5vw, 2.85rem);
+  color: var(--splash-gold-dark);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+  line-height: 1;
+  padding-left: 0.08em;
+}
+
+.sms-splash-tribute__subtitle {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(9px, 2.4vw, 12px);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--splash-gold-dark);
+  margin-bottom: clamp(18px, 4vw, 24px);
+  animation: smsSplashFade 1.4s 0.55s both;
+}
+
+/* Portrait */
+.sms-splash-tribute__photo-frame {
+  position: relative;
+  width: clamp(188px, 48vw, 270px);
+  margin: 0 auto clamp(14px, 3vw, 20px);
+  animation: smsSplashFade 1.4s 0.65s both;
+}
+
+.sms-splash-tribute__frame-ring {
+  position: absolute;
+  inset: -10px;
+  border-radius: 50%;
+  border: 1px solid var(--splash-gold);
+  opacity: 0.45;
+  animation: smsSplashRotate 22s linear infinite;
+}
+
+.sms-splash-tribute__frame-ring--outer {
+  inset: -18px;
+  border-style: dashed;
+  opacity: 0.28;
+  animation-direction: reverse;
+  animation-duration: 32s;
+}
+
+@keyframes smsSplashRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.sms-splash-tribute__photo {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 18%;
+  display: block;
+  border: 3px solid rgba(200, 169, 110, 0.5);
+  background: linear-gradient(145deg, #e8d5b0, #c8a96e);
+  box-shadow:
+    0 0 0 1px rgba(200, 169, 110, 0.28),
+    0 10px 36px rgba(122, 22, 22, 0.18),
+    0 2px 10px rgba(0, 0, 0, 0.12);
+}
+
+.sms-splash-tribute__photo-line {
+  display: flex;
+  justify-content: center;
+  margin: 6px 0 4px;
+  animation: smsSplashFade 1.4s 0.78s both;
+}
+
+.sms-splash-tribute__name-block {
+  margin-bottom: clamp(14px, 3vw, 18px);
+  animation: smsSplashFade 1.4s 0.82s both;
+}
+
+.sms-splash-tribute__name-main {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.45rem, 4.5vw, 2.05rem);
+  font-weight: 600;
+  color: var(--splash-text);
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.sms-splash-tribute__name-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(9px, 2.3vw, 11px);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--splash-gold-dark);
+  line-height: 1.65;
+}
+
+/* Gold rule + khanda motif */
+.sms-splash-tribute__gold-rule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 4px 0 clamp(14px, 3vw, 18px);
+  animation: smsSplashFade 1.4s 0.95s both;
+}
+
+.sms-splash-tribute__gold-line {
+  width: clamp(48px, 16vw, 88px);
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--splash-gold));
+}
+
+.sms-splash-tribute__gold-line--rev {
+  background: linear-gradient(to left, transparent, var(--splash-gold));
+}
+
+.sms-splash-tribute__quotes {
+  max-width: 28rem;
+  margin: 0 auto clamp(16px, 4vw, 22px);
+  animation: smsSplashFade 1.4s 1.05s both;
+}
+
+.sms-splash-tribute__quote {
+  font-size: clamp(0.95rem, 2.9vw, 1.05rem);
+  line-height: 1.82;
+  color: var(--splash-body);
+  margin-bottom: 12px;
+}
+
+.sms-splash-tribute__quote em {
+  font-style: italic;
+  color: var(--splash-crimson);
+}
+
+.sms-splash-tribute__quote-sep {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0;
+  color: var(--splash-gold-dark);
+  opacity: 0.75;
+}
+
+.sms-splash-tribute__quote-2 {
+  font-size: clamp(0.9rem, 2.7vw, 1rem);
+  line-height: 1.78;
+  color: var(--splash-muted);
+  font-style: italic;
+}
+
+.sms-splash-tribute__enter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 6px;
+  padding: 15px clamp(32px, 10vw, 52px);
+  min-height: 52px;
+  background: linear-gradient(135deg, var(--splash-crimson) 0%, #6e1212 45%, var(--splash-crimson-light) 100%);
+  color: var(--splash-gold-light);
+  border: 1px solid rgba(200, 169, 110, 0.45);
+  border-radius: 100px;
+  font-family: 'Cinzel', serif;
+  font-size: clamp(10px, 2.6vw, 13px);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 5px 24px rgba(122, 22, 22, 0.38),
+    0 1px 4px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+  animation: smsSplashFade 1.4s 1.2s both;
+}
+
+.sms-splash-tribute__enter::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(200, 169, 110, 0.12), transparent 52%);
+  border-radius: 100px;
+  pointer-events: none;
+}
+
+.sms-splash-tribute__enter:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 10px 32px rgba(122, 22, 22, 0.45),
+    0 2px 8px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+  border-color: rgba(200, 169, 110, 0.65);
+}
+
+.sms-splash-tribute__enter:active {
+  transform: translateY(0);
+}
+
+.sms-splash-tribute__enter:focus-visible {
+  outline: 3px solid var(--splash-gold-light);
+  outline-offset: 3px;
+}
+
+.sms-splash-tribute__enter-arrow {
+  font-size: 1.05em;
+  letter-spacing: 0;
+  opacity: 0.88;
+}
+
+.sms-splash-tribute__foot {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(7px, 1.9vw, 10px);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--splash-muted);
+  margin-top: clamp(14px, 3vw, 20px);
+  opacity: 0.72;
+  line-height: 1.5;
+  max-width: 22rem;
+  animation: smsSplashFade 1.4s 1.35s both;
+}
+
+@media (max-width: 767px) {
+  body.sms-splash-tribute {
+    overflow-y: auto;
+    align-items: flex-start;
+    padding-top: clamp(12px, 4vw, 20px);
+  }
+
+  .sms-splash-tribute__container {
+    padding-bottom: max(32px, env(safe-area-inset-bottom));
+  }
+
+  .sms-splash-tribute__enter {
+    width: 100%;
+    max-width: 20rem;
+  }
+}
+
+@media (max-height: 720px) and (min-width: 768px) {
+  html,
+  body.sms-splash-tribute {
+    overflow-y: auto;
+    height: auto;
+    min-height: 100%;
+  }
+
+  .sms-splash-tribute__photo-frame {
+    width: clamp(160px, 28vh, 220px);
+  }
+
+  .sms-splash-tribute__quotes {
+    margin-bottom: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sms-splash-tribute__container,
+  .sms-splash-tribute__top-ornament,
+  .sms-splash-tribute__headline,
+  .sms-splash-tribute__subtitle,
+  .sms-splash-tribute__photo-frame,
+  .sms-splash-tribute__photo-line,
+  .sms-splash-tribute__name-block,
+  .sms-splash-tribute__gold-rule,
+  .sms-splash-tribute__quotes,
+  .sms-splash-tribute__enter,
+  .sms-splash-tribute__foot {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .sms-splash-tribute__frame-ring,
+  .sms-splash-tribute__frame-ring--outer {
+    animation: none !important;
+  }
+}

@@ -13,6 +13,19 @@ if (!empty($_GET['enquiry']) && is_string($_GET['enquiry'])) {
 }
 
 sms_enquiry_session_start();
+
+/* Tribute splash — first screen per session (disable: SMS_TRIBUTE_SPLASH false in config) */
+if (defined('SMS_TRIBUTE_SPLASH') && SMS_TRIBUTE_SPLASH) {
+    if (isset($_GET['continue']) && (string) $_GET['continue'] === '1') {
+        $_SESSION['sms_tribute_seen'] = true;
+        header('Location: index.php', true, 302);
+        exit;
+    }
+    if (empty($_SESSION['sms_tribute_seen'])) {
+        require __DIR__ . '/splash-tribute.php';
+        exit;
+    }
+}
 $sms_enquiry_toast = null;
 if (!empty($_SESSION['sms_enquiry_flash'])) {
     $tf = (string) $_SESSION['sms_enquiry_flash'];
