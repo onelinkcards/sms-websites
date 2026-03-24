@@ -17,7 +17,6 @@ dir="<?= htmlspecialchars($dir ?? 'ltr'); ?>">
      }
     ?>
     <?php include 'partials/scripts.php'; ?>
-    <?php ob_end_flush(); ?>
 </body>
 </html>
 
