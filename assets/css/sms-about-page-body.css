@@ -15,7 +15,7 @@ body.sms-about-page .sms-about-body * {
 .sms-about-body__contain {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 clamp(16px, 4vw, 56px);
+  padding: 0 var(--container-gutter, clamp(16px, 4vw, 56px));
   box-sizing: border-box;
 }
 

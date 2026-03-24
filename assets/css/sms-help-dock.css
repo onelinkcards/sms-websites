@@ -1,5 +1,6 @@
 /**
  * Help dock — single pill FAB + panel (close button matches .sms-mobile-drawer__close).
+ * Shown from md breakpoint up only; hidden on phone (≤767px).
  */
 
 .sms-help-dock {
@@ -16,11 +17,12 @@
   max-width: min(360px, calc(100vw - 24px));
 }
 
+/* Desktop only — hide FAB + panel on phone */
 @media (max-width: 767px) {
   .sms-help-dock {
-    bottom: calc(56px + max(10px, env(safe-area-inset-bottom, 0px)));
-    right: max(12px, env(safe-area-inset-right, 0px));
-    max-width: min(340px, calc(100vw - 20px));
+    display: none !important;
+    visibility: hidden;
+    pointer-events: none;
   }
 }
 
@@ -353,24 +355,6 @@ body.sms-enquiry-sheet-open .sms-help-dock {
   }
   100% {
     opacity: 0;
-  }
-}
-
-@media (max-width: 380px) {
-  .sms-help-dock__fab-row {
-    gap: 8px;
-  }
-
-  .sms-help-dock__fab-bar {
-    padding: 8px 14px;
-    min-height: 44px;
-    max-width: min(200px, calc(100vw - 100px));
-    font-size: 12px;
-  }
-
-  .sms-help-dock__fab-circle {
-    width: 52px;
-    height: 52px;
   }
 }
 

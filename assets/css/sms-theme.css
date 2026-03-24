@@ -633,8 +633,8 @@ body.page.sms-home .fontawesome {
   max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: clamp(16px, 4vw, 56px);
-  padding-right: clamp(16px, 4vw, 56px);
+  padding-left: var(--container-gutter, clamp(16px, 4vw, 56px));
+  padding-right: var(--container-gutter, clamp(16px, 4vw, 56px));
   box-sizing: border-box;
   width: 100%;
 }
@@ -1108,8 +1108,8 @@ section.section.sms-info-strip--v2.sms-info-strip--triple {
   max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: clamp(16px, 4vw, 56px);
-  padding-right: clamp(16px, 4vw, 56px);
+  padding-left: var(--container-gutter, clamp(16px, 4vw, 56px));
+  padding-right: var(--container-gutter, clamp(16px, 4vw, 56px));
   box-sizing: border-box;
   width: 100%;
 }
@@ -1770,7 +1770,7 @@ section.section.sms-info-strip--v2.sms-info-strip--triple {
       rgba(28, 53, 94, 0.32) 42%,
       rgba(15, 31, 56, 0.4) 100%
     ),
-    url('https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=2400&q=85');
+    url('https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=85');
   background-size: cover;
   background-position: center;
 }
@@ -1879,7 +1879,7 @@ section.section.sms-info-strip--v2.sms-info-strip--triple {
 /* Optional: alternate HQ campus shot — swap URL in devtools or duplicate rule */
 .sms-hero-cu__bg--hq-photo {
   background-image: linear-gradient(118deg, rgba(15, 31, 56, 0.88) 0%, rgba(28, 53, 94, 0.55) 42%, rgba(15, 31, 56, 0.72) 100%),
-    url('https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&w=2400&q=88');
+    url('https://images.unsplash.com/photo-1564981797816-1043664bf78d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=88');
   background-size: cover;
   background-position: center;
 }
@@ -1894,8 +1894,8 @@ section.section.sms-info-strip--v2.sms-info-strip--triple {
   max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: clamp(16px, 4vw, 56px);
-  padding-right: clamp(16px, 4vw, 56px);
+  padding-left: var(--container-gutter, clamp(16px, 4vw, 56px));
+  padding-right: var(--container-gutter, clamp(16px, 4vw, 56px));
   box-sizing: border-box;
   min-height: 100%;
 }
@@ -2050,8 +2050,8 @@ section.section.sms-info-strip--v2.sms-info-strip--triple {
   max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: clamp(16px, 4vw, 56px);
-  padding-right: clamp(16px, 4vw, 56px);
+  padding-left: var(--container-gutter, clamp(16px, 4vw, 56px));
+  padding-right: var(--container-gutter, clamp(16px, 4vw, 56px));
   box-sizing: border-box;
   overflow: hidden;
   mask-image: linear-gradient(90deg, transparent, #000 1.5%, #000 98.5%, transparent);

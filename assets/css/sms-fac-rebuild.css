@@ -148,20 +148,21 @@
   opacity: 1;
 }
 
+/* ixlib helps CDN reliably resolve; nursing / campus / library / transport themes */
 .sms-hs-fac--rebuild .sms-hs-fac__item--i1 .sms-hs-fac__item-bg {
-  background-image: url('https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=1600&q=90');
+  background-image: url('https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=82');
 }
 
 .sms-hs-fac--rebuild .sms-hs-fac__item--i2 .sms-hs-fac__item-bg {
-  background-image: url('https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=1600&q=90');
+  background-image: url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=82');
 }
 
 .sms-hs-fac--rebuild .sms-hs-fac__item--i3 .sms-hs-fac__item-bg {
-  background-image: url('https://images.unsplash.com/photo-1584433144859-1fc3ab64a728?auto=format&fit=crop&w=1600&q=90');
+  background-image: url('https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=82');
 }
 
 .sms-hs-fac--rebuild .sms-hs-fac__item--i4 .sms-hs-fac__item-bg {
-  background-image: url('https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&w=1600&q=90');
+  background-image: url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=82');
 }
 
 .sms-hs-fac--rebuild .sms-hs-fac__item-scrim {
@@ -378,8 +379,9 @@
 
   .sms-hs-fac--rebuild .sms-hs-fac__intro {
     font-size: 15px;
-    line-height: 1.6;
-    padding: 0 2px;
+    line-height: 1.68;
+    max-width: 36rem;
+    padding: 0;
   }
 
   .sms-hs-fac--rebuild .sms-hs-fac__strip {
@@ -389,16 +391,18 @@
   }
 
   .sms-hs-fac--rebuild .sms-hs-fac__strip-cell {
-    padding: 14px 12px;
+    padding: 16px 14px;
   }
 
   .sms-hs-fac--rebuild .sms-hs-fac__strip-val {
-    font-size: 22px;
+    font-size: clamp(20px, 5.5vw, 24px);
   }
 
   .sms-hs-fac--rebuild .sms-hs-fac__strip-lbl {
-    font-size: 11px;
-    line-height: 1.35;
+    font-size: 12px;
+    line-height: 1.4;
+    font-weight: 500;
+    color: #5c5c5c;
   }
 
   .sms-hs-fac--rebuild .sms-hs-fac__strip-cell:nth-child(2) {
@@ -418,76 +422,96 @@
     gap: 14px;
   }
 
-  /* Card stack: clearer hierarchy on small screens */
+  /* Mobile card: row 1 = number + title (horizontal) + arrow; row 2 = description full width */
   .sms-hs-fac--rebuild .sms-hs-fac__item {
     border-radius: 14px;
   }
 
   .sms-hs-fac--rebuild .sms-hs-fac__item-inner {
     position: relative;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 12px;
-    padding: 18px 16px 18px 16px;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-rows: auto auto;
+    align-items: center;
+    column-gap: 12px;
+    row-gap: 12px;
+    padding: 18px 18px 20px;
   }
 
   .sms-hs-fac--rebuild .sms-hs-fac__item--active .sms-hs-fac__item-inner,
   .sms-hs-fac--rebuild .sms-hs-fac__item:not(.sms-hs-fac__item--active) .sms-hs-fac__item-inner {
-    padding: 18px 16px;
+    padding: 18px 18px 20px;
+  }
+
+  .sms-hs-fac--rebuild .sms-hs-fac__item-copy {
+    display: contents;
+    padding-right: 0;
+    width: auto;
   }
 
   .sms-hs-fac--rebuild .sms-hs-fac__item-num {
-    flex-shrink: 0;
-    align-self: flex-start;
+    grid-column: 1;
+    grid-row: 1;
+    align-self: center;
   }
 
   .sms-hs-fac--rebuild .sms-hs-fac__item--active .sms-hs-fac__item-num {
-    width: 52px;
-    height: 52px;
-    font-size: 18px;
+    width: 48px;
+    height: 48px;
+    font-size: 17px;
   }
 
   .sms-hs-fac--rebuild .sms-hs-fac__item:not(.sms-hs-fac__item--active) .sms-hs-fac__item-num {
-    width: 50px;
-    height: 50px;
-    font-size: 18px;
+    width: 48px;
+    height: 48px;
+    font-size: 17px;
+  }
+
+  .sms-hs-fac--rebuild .sms-hs-fac__item-title {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
+    margin-bottom: 0 !important;
   }
 
   .sms-hs-fac--rebuild .sms-hs-fac__item-arrow {
-    position: absolute;
-    top: 16px;
-    right: 14px;
+    grid-column: 3;
+    grid-row: 1;
+    position: static;
+    top: auto;
+    right: auto;
+    align-self: center;
+    justify-self: end;
   }
 
   .sms-hs-fac--rebuild .sms-hs-fac__item--active .sms-hs-fac__item-arrow,
   .sms-hs-fac--rebuild .sms-hs-fac__item:not(.sms-hs-fac__item--active) .sms-hs-fac__item-arrow {
-    width: 44px;
-    height: 44px;
+    width: 42px;
+    height: 42px;
   }
 
-  .sms-hs-fac--rebuild .sms-hs-fac__item-copy {
-    padding-right: 52px;
-    width: 100%;
-  }
-
-  .sms-hs-fac--rebuild .sms-hs-fac__item--active .sms-hs-fac__item-title {
-    font-size: 1.05rem;
-    margin-bottom: 6px;
-  }
-
+  .sms-hs-fac--rebuild .sms-hs-fac__item--active .sms-hs-fac__item-title,
   .sms-hs-fac--rebuild .sms-hs-fac__item:not(.sms-hs-fac__item--active) .sms-hs-fac__item-title {
-    font-size: 1.05rem;
-    margin-bottom: 6px;
+    font-size: clamp(15px, 4vw, 17px);
+    font-weight: 800;
+    line-height: 1.28;
+    letter-spacing: -0.02em;
   }
 
   .sms-hs-fac--rebuild .sms-hs-fac__item-desc {
-    font-size: 14px;
-    line-height: 1.62;
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin: 0;
+    padding-top: 12px;
+    border-top: 1px solid rgba(26, 26, 26, 0.08);
+    font-size: 14.5px;
+    line-height: 1.65;
+    font-weight: 400;
   }
 
   .sms-hs-fac--rebuild .sms-hs-fac__item--active .sms-hs-fac__item-desc {
-    font-size: 14px;
-    line-height: 1.62;
+    border-top-color: rgba(255, 255, 255, 0.22);
+    color: rgba(255, 255, 255, 0.9);
   }
 
   .sms-hs-fac--rebuild .sms-hs-fac__campus-link {

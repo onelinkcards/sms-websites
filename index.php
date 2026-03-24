@@ -45,16 +45,16 @@ $_sms_courses = defined('SMS_COURSES_URL') ? SMS_COURSES_URL : 'courses.php';
     <div class="sms-hero-cu__bg sms-hero-cu__bg--hero-photo sms-hero-cu__bg--slideshow" data-sms-hero-root>
         <div class="sms-hero-cu__slideshow" data-sms-hero-slideshow aria-hidden="true">
             <div class="sms-hero-cu__slide is-active">
-                <img src="<?php echo htmlspecialchars(SMS_STOCK_HERO_1, ENT_QUOTES, 'UTF-8'); ?>" alt="" width="2400" height="1600" decoding="async" fetchpriority="high">
+                <img src="<?php echo htmlspecialchars(SMS_STOCK_HERO_1, ENT_QUOTES, 'UTF-8'); ?>" alt="" width="2400" height="1600" decoding="async" fetchpriority="high" referrerpolicy="no-referrer">
             </div>
             <div class="sms-hero-cu__slide">
-                <img src="<?php echo htmlspecialchars(SMS_STOCK_HERO_2, ENT_QUOTES, 'UTF-8'); ?>" alt="" width="2400" height="1600" decoding="async" loading="lazy">
+                <img src="<?php echo htmlspecialchars(SMS_STOCK_HERO_2, ENT_QUOTES, 'UTF-8'); ?>" alt="" width="2400" height="1600" decoding="async" loading="lazy" referrerpolicy="no-referrer">
             </div>
             <div class="sms-hero-cu__slide">
-                <img src="<?php echo htmlspecialchars(SMS_STOCK_HERO_3, ENT_QUOTES, 'UTF-8'); ?>" alt="" width="2400" height="1600" decoding="async" loading="lazy">
+                <img src="<?php echo htmlspecialchars(SMS_STOCK_HERO_3, ENT_QUOTES, 'UTF-8'); ?>" alt="" width="2400" height="1600" decoding="async" loading="lazy" referrerpolicy="no-referrer">
             </div>
             <div class="sms-hero-cu__slide">
-                <img src="<?php echo htmlspecialchars(SMS_STOCK_HERO_4, ENT_QUOTES, 'UTF-8'); ?>" alt="" width="2400" height="1600" decoding="async" loading="lazy">
+                <img src="<?php echo htmlspecialchars(SMS_STOCK_HERO_4, ENT_QUOTES, 'UTF-8'); ?>" alt="" width="2400" height="1600" decoding="async" loading="lazy" referrerpolicy="no-referrer">
             </div>
         </div>
         <div class="sms-hero-cu__scrim" aria-hidden="true"></div>

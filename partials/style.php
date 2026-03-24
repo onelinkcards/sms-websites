@@ -1,6 +1,8 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <link rel="dns-prefetch" href="https://images.unsplash.com">
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
     <title><?php echo defined('SMS_SITE_NAME') ? SMS_SITE_NAME . ' - ' : ''; ?><?php echo htmlspecialchars($page_title ?? 'SMS Final Design'); ?></title>
     <link rel="shortcut icon" type="image/png" href="<?php echo htmlspecialchars(defined('SMS_LOGO_MAIN') ? SMS_LOGO_MAIN : 'assets/images/logo/group-21.png'); ?>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -56,4 +58,7 @@
     <?php endif; ?>
     <?php if (strpos($body_class ?? '', 'sms-admission-page') !== false) : ?>
     <link rel="stylesheet" href="assets/css/sms-admission-page-body.css">
+    <?php endif; ?>
+    <?php if (defined('SMS_SHOW_DEMO_BANNER') && SMS_SHOW_DEMO_BANNER) : ?>
+    <link rel="stylesheet" href="assets/css/sms-demo-banner.css">
     <?php endif; ?>

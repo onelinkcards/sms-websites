@@ -33,6 +33,9 @@
     <!-- main Js -->
     <script src="assets/js/main.js"></script>
     <script src="assets/js/sms-global-uniform.js" defer></script>
+    <?php if (defined('SMS_SHOW_DEMO_BANNER') && SMS_SHOW_DEMO_BANNER) : ?>
+    <script src="assets/js/sms-demo-banner.js" defer></script>
+    <?php endif; ?>
     <?php if (!empty($sms_home_js)) : ?>
     <script src="assets/js/sms-home.js" defer></script>
     <?php endif; ?>

@@ -7,6 +7,11 @@ dir="<?= htmlspecialchars($dir ?? 'ltr'); ?>">
 </head>
 <body class="<?= htmlspecialchars($body_class ?? ''); ?>">
     <?php
+    if (defined('SMS_SHOW_DEMO_BANNER') && SMS_SHOW_DEMO_BANNER) {
+        include __DIR__ . '/partials/components/sms-demo-banner.php';
+    }
+    ?>
+    <?php
      if (!empty($content)) {
           echo $content;
      }
