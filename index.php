@@ -14,6 +14,14 @@ if (!empty($_GET['enquiry']) && is_string($_GET['enquiry'])) {
 
 sms_enquiry_session_start();
 
+/* Homepage refresh → welcome curtain (client redirects here once; skip splash + play entrance) */
+if (isset($_GET['home_welcome']) && (string) $_GET['home_welcome'] === '1') {
+    $_SESSION['sms_show_home_once'] = true;
+    $_SESSION['sms_play_home_entrance'] = true;
+    header('Location: index.php', true, 302);
+    exit;
+}
+
 /* Tribute splash — every visit unless user just clicked “Enter” (one-shot; refresh home → splash again) */
 if (defined('SMS_TRIBUTE_SPLASH') && SMS_TRIBUTE_SPLASH) {
     if (isset($_GET['continue']) && (string) $_GET['continue'] === '1') {
@@ -32,6 +40,7 @@ $sms_home_enter_reveal = !empty($_SESSION['sms_play_home_entrance']);
 if ($sms_home_enter_reveal) {
     unset($_SESSION['sms_play_home_entrance']);
 }
+$sms_home_welcome_reload_js = !$sms_home_enter_reveal;
 $sms_enquiry_toast = null;
 if (!empty($_SESSION['sms_enquiry_flash'])) {
     $tf = (string) $_SESSION['sms_enquiry_flash'];

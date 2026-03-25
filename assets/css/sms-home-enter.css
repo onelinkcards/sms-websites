@@ -40,6 +40,12 @@ body.sms-home--enter-reveal {
   will-change: transform, opacity;
 }
 
+/* After “Enter Website” from tribute: larger logo before flight to header */
+body.sms-home--enter-reveal.sms-home--from-splash .sms-enter-curtain__logo {
+  max-width: min(300px, 64vw);
+  max-height: 92px;
+}
+
 /* Page under curtain: hidden until phase 2 */
 body.sms-home--enter-reveal > *:not(#sms-enter-curtain) {
   opacity: 0;

@@ -35,6 +35,9 @@
     <?php if (!empty($sms_home_enter_reveal)) : ?>
     <script src="assets/js/sms-home-enter.js"></script>
     <?php endif; ?>
+    <?php if (($sms_home_welcome_reload_js ?? false) === true) : ?>
+    <script src="assets/js/sms-home-welcome-reload.js" defer></script>
+    <?php endif; ?>
     <script src="assets/js/sms-global-uniform.js" defer></script>
     <?php if (defined('SMS_SHOW_DEMO_BANNER') && SMS_SHOW_DEMO_BANNER) : ?>
     <script src="assets/js/sms-demo-banner.js" defer></script>

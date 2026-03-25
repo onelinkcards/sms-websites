@@ -11,6 +11,7 @@
     fromSplashHandoff = sessionStorage.getItem('sms_from_splash_handoff') === '1';
     if (fromSplashHandoff) {
       sessionStorage.removeItem('sms_from_splash_handoff');
+      body.classList.add('sms-home--from-splash');
     }
   } catch (err) {}
 
@@ -23,16 +24,19 @@
   var fly = curtain.querySelector('.sms-enter-curtain__logo');
   var target = document.querySelector('.sms-header-pro__logo .sms-logo-header');
 
-  var flightSec = fromSplashHandoff ? 1.1 : 0.95;
+  var flightSec = fromSplashHandoff ? 1.2 : 0.95;
   var opacityDelaySec = Math.max(0.55, flightSec - 0.38).toFixed(2);
-  var startDelayMs = fromSplashHandoff ? 70 : 260;
-  var phase2Ms = fromSplashHandoff ? 860 : 920;
-  var cleanupMs = fromSplashHandoff ? 1500 : 1620;
+  var startDelayMs = fromSplashHandoff ? 120 : 260;
+  var phase2Ms = fromSplashHandoff ? 920 : 920;
+  var cleanupMs = fromSplashHandoff ? 1680 : 1620;
 
   function cleanup() {
     body.style.overflow = '';
-    body.classList.remove('sms-home--enter-reveal', 'sms-home--enter-phase2');
+    body.classList.remove('sms-home--enter-reveal', 'sms-home--enter-phase2', 'sms-home--from-splash');
     curtain.remove();
+    try {
+      sessionStorage.setItem('sms_home_welcome_on_reload_ok', '1');
+    } catch (e) {}
   }
 
   function runReduced() {
