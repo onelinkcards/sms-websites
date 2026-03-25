@@ -63,7 +63,11 @@ if (!defined('SMS_TRIBUTE_SPLASH')) {
     define('SMS_TRIBUTE_SPLASH', true);
 }
 if (!defined('SMS_TRIBUTE_PORTRAIT')) {
-    define('SMS_TRIBUTE_PORTRAIT', 'assets/images/tribute/sant-manjit-singh-ji.jpeg');
+    define('SMS_TRIBUTE_PORTRAIT', 'assets/images/tribute/sant-manjit-singh-ji.png');
+}
+/** Optional full-bleed texture (e.g. image_10.png damask) — soft-light over burgundy. Empty = CSS damask only. */
+if (!defined('SMS_TRIBUTE_BG_IMAGE')) {
+    define('SMS_TRIBUTE_BG_IMAGE', '');
 }
 
 /** Enquiry form: notification inbox — defaults to college email when defined */

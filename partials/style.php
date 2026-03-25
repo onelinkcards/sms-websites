@@ -45,6 +45,12 @@
     <link rel="stylesheet" href="assets/css/sms-home-faq.css">
     <link rel="stylesheet" href="assets/css/sms-help-dock.css">
     <?php endif; ?>
+    <?php if (!empty($sms_home_enter_reveal)) : ?>
+    <link rel="stylesheet" href="assets/css/sms-home-enter.css">
+    <?php endif; ?>
+    <?php if (!empty($sms_home_soft_enter)) : ?>
+    <link rel="stylesheet" href="assets/css/sms-home-soft-enter.css">
+    <?php endif; ?>
     <!-- SMS premium homepage (clean academic design) -->
     <link rel="stylesheet" href="assets/css/sms-premium.css">
     <link rel="stylesheet" href="assets/css/sms-site-polish.css">

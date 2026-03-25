@@ -14,17 +14,23 @@ if (!empty($_GET['enquiry']) && is_string($_GET['enquiry'])) {
 
 sms_enquiry_session_start();
 
-/* Tribute splash — first screen per session (disable: SMS_TRIBUTE_SPLASH false in config) */
+/* Tribute splash — every visit unless user just clicked “Enter” (one-shot; refresh home → splash again) */
 if (defined('SMS_TRIBUTE_SPLASH') && SMS_TRIBUTE_SPLASH) {
     if (isset($_GET['continue']) && (string) $_GET['continue'] === '1') {
-        $_SESSION['sms_tribute_seen'] = true;
+        $_SESSION['sms_show_home_once'] = true;
+        $_SESSION['sms_play_home_entrance'] = true;
         header('Location: index.php', true, 302);
         exit;
     }
-    if (empty($_SESSION['sms_tribute_seen'])) {
+    if (empty($_SESSION['sms_show_home_once'])) {
         require __DIR__ . '/splash-tribute.php';
         exit;
     }
+    unset($_SESSION['sms_show_home_once']);
+}
+$sms_home_enter_reveal = !empty($_SESSION['sms_play_home_entrance']);
+if ($sms_home_enter_reveal) {
+    unset($_SESSION['sms_play_home_entrance']);
 }
 $sms_enquiry_toast = null;
 if (!empty($_SESSION['sms_enquiry_flash'])) {
@@ -36,7 +42,7 @@ if (!empty($_SESSION['sms_enquiry_flash'])) {
 }
 
 $page_title = 'Home - Nursing & Allied Healthcare';
-$body_class = 'page sms-home';
+$body_class = 'page sms-home' . ($sms_home_enter_reveal ? ' sms-home--enter-reveal' : '');
 $sms_show_ai_widget = true;
 $sms_home_js = true;
 $sms_active_nav = 'home';
